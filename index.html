@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Weather App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1 class="main_heading">Global Weather</h1>
+            <div>
+                <button id="resetButton" class="tooltip" data-tooltip="Reset to Bengaluru"><i
+                        class="bx bx-reset"></i></button>
+                <button id="toggleModeButton" class="tooltip" data-tooltip="Toggle Light/Dark Mode"><i
+                        class="bx bx-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="main_information">
+            <div class="sub_information1">
+                <div class="info-sub1-main1">
+                    <div class="info-content-main1">
+                        <div class="weatherForm">
+                            <input type="text" id="cityInput" placeholder="Enter Location" class="tooltip"
+                                data-tooltip="Enter a city name">
+                            <button type="submit" id="searchButton" class="tooltip" data-tooltip="Search city"><i
+                                    class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+                    <div id="weatherResult"></div>
+                    <div id="more-details"></div>
+                </div>
+                <div class="info-sub2-main1">
+                    <div class="hourlyForcast">
+                        <!-- <i id="icon-h-w" class='bx bx-history'></i> -->
+                        <h3 class="title-h-w"><i id="icon-h-w" class='bx bx-history'></i>Hourly Forecast</h3>
+                        <hr>
+                        <div id="hourly-forecast"></div>
+                    </div>
+                    <div class="weeklyForcast">
+                        <!-- <i id="icon-h-w" class='bx bx-history'></i> -->
+                        <h3 class="title-h-w"><i id="icon-h-w" class='bx bx-history'></i>Daily Forecast</h3>
+                        <hr>
+                        <div id="weekly-forecast"></div>
+                    </div>
+                    <div id="additional-details"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024-2025 Global Weather App. All rights reserved. | Created by <a
+                    href="https://github.com/gmounika-glb">Mounika G</a></p>
+        </footer>
+    </div> <!-- End of new container div -->
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
