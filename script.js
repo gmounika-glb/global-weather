@@ -212,7 +212,7 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
     document.getElementById('searchButton').click();
   }
-  if (event.key === 'r' && (event.ctrlKey || event.metaKey)) {
+  if (event.key === 'r' && (event.ctrlKey || event.metaKey || event.shiftKey)) {
     event.preventDefault();
     document.getElementById('resetButton').click();
   }
