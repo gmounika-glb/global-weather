@@ -44,12 +44,14 @@ body {
 header {
     background-color: rgba(0, 0, 0, 42%);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 10px;
-    border-radius: 3%;
+    border-radius: 500px;
     writing-mode: vertical-lr;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .main_heading {
@@ -61,6 +63,17 @@ header {
     position: relative;
 }
 
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
 .tooltip:hover::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -71,6 +84,22 @@ header {
     top: 40px;
     left: 50%;
     transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+
+.tool-hori:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    top: 40px;
+    left: 50%;
+    transform: translateX(480%);
+    rotate: -90deg;
     white-space: nowrap;
     font-size: 12px;
 }
@@ -99,20 +128,24 @@ header {
     flex: 1;
     background: transparent;
 }
-.info-sub2-main1{
+
+.info-sub2-main1 {
     width: 55%;
     background-color: rgba(0, 0, 0, 42%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-.info-sub1-main1{
+
+.info-sub1-main1 {
     width: 35%;
 }
+
 .hourlyForcast,
-.weeklyForcast{
-    border-radius: 3%;
-        background-color: rgba(0, 0, 0, 42%);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.weeklyForcast {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 42%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
 .weatherForm {
     display: flex;
     align-items: center;
@@ -130,7 +163,17 @@ header {
     color: white;
     flex: 1;
     min-width: 200px;
+    border-radius: 500px;
 }
+
+::placeholder {
+    color: red;
+    opacity: 1; /* Firefox */
+  }
+  
+  ::-ms-input-placeholder { /* Edge 12 -18 */
+    color: red;
+  }
 
 .weatherForm button {
     padding: 10px;
@@ -140,6 +183,7 @@ header {
     color: white;
     cursor: pointer;
     font-size: 18px;
+    border-radius: 500px;
 }
 
 .weatherForm button:hover {
@@ -170,8 +214,9 @@ header {
 footer {
     text-align: center;
     font-size: 14px;
+    letter-spacing: 2px;
     padding: 10px;
-    border-radius: 3%;
+    border-radius: 500px;
     writing-mode: vertical-lr;
     background-color: rgba(0, 0, 0, 42%);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -208,6 +253,9 @@ img {
 
 .forecast-card {
     padding: 3%;
+    min-width: 7rem;
+    background: grey;
+    border-radius: 20px 40px;
 }
 
 .date-time {
@@ -237,13 +285,15 @@ img {
     flex-direction: column;
     text-align: center;
     padding: 4%;
-    border-radius: 3%;
+    border-radius: 15px;
     width: 46%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-#condition{
+
+#condition {
     font-size: 6px;
 }
+
 .additional-info,
 #more-details,
 #forcast-more-details,
@@ -255,9 +305,11 @@ img {
     align-items: center;
     justify-content: center;
 }
-#more-details{
-background-color: rgba(0, 0, 0, 42%);
+
+#more-details {
+    background-color: rgba(0, 0, 0, 42%);
 }
+
 /* Light Mode Styles */
 body.light-mode {
     color: black;
@@ -277,6 +329,7 @@ body.light-mode .weatherForm button:hover {
     background: #0077cc;
     color: white;
 }
+
 body.light-mode #more-details {
     background-color: #eeeeee5c;
 }
@@ -284,24 +337,73 @@ body.light-mode #more-details {
 body.light-mode .cards {
     background-color: #eeeeee4f;
 }
+
 body.light-mode header {
     background-color: #eeeeee4f;
 }
-body.light-mode .hourlyForcast
- {
-    
+
+body.light-mode .hourlyForcast {
+
     background-color: #eeeeee4f;
 }
+
 body.light-mode .weeklyForcast {
     background-color: #eeeeee4f;
-}body.light-mode .info-sub2-main1 {
+}
+
+body.light-mode .info-sub2-main1 {
     background-color: transparent;
     box-shadow: none;
-}body.light-mode footer {
+}
+
+body.light-mode footer {
     background-color: #eeeeee4f;
-}body.light-mode #additional-details{
+}
+
+body.light-mode #additional-details {
     background-color: #ffffff4f;
 }
+
+/* Scrollbar Styles */
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: grey;
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    background-color: gray;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #0071B9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
 
 /* Responsive Enhancements */
 
@@ -332,9 +434,11 @@ body.light-mode .weeklyForcast {
     .app-container {
         flex-direction: column;
     }
-.main_information{
-    width: 100%;
-}
+
+    .main_information {
+        width: 100%;
+    }
+
     header {
         writing-mode: unset;
     }
@@ -400,9 +504,10 @@ body.light-mode .weeklyForcast {
 }
 
 h2.current-weather-location {
-        font-size: 20px;
-        margin: 7%;
-    }
+    font-size: 20px;
+    margin: 7%;
+}
+
 div#weatherResult {
     display: flex;
     text-align: center;
@@ -416,28 +521,35 @@ div#weatherResult {
 .current-weather-temp {
     font-size: 28px;
 }
+
 #current-weather-icon {
     font-size: 56px;
     margin: 7%;
 }
+
 #additional-details {
     background: #0000003b;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     border-radius: 20px;
 }
+
 i#icon-h-w {
     padding-right: 2%;
     padding-top: 2%;
+    padding-left: 2%;
     align-items: center;
     text-align: center;
 }
+
 .titile-h-w {
-  font-size: 20px;
+    font-size: 20px;
 }
-#add-title{
+
+#add-title {
     font-size: 12px;
 }
-.title-h-w{
-font-size: 15px;
+
+.title-h-w {
+    font-size: 15px;
 }

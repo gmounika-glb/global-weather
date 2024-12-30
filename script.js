@@ -90,7 +90,7 @@ async function fetchUVIndex(lat, lon) {
 function displayCurrentWeather(data) {
   const icon = weatherIcons[data.weather[0].main] || weatherIcons.Default;
   const weatherHTML = `
-    <div class="forecast-card" id='current-weather'>
+    <div id='current-weather'>
         <h2 class='current-weather-location'>${data.name}</h2>
         <p class='current-weather-temp'>${data.main.temp}°C</p>
         <i id='current-weather-icon'class="${icon} weather-icon"></i>
@@ -100,10 +100,10 @@ function displayCurrentWeather(data) {
   document.getElementById('weatherResult').innerHTML = weatherHTML;
 
   const moreHTML = `
-    <div class="forecast-card" id='forcast-more-details'>
-        <div class='cards'><i  id='add-title' class="fas fa-tint">Humidity:</i> <span class='value'> ${data.main.humidity}%</span></div>
-        <div class='cards'><i  id='add-title'class="fas fa-compress-arrows-alt">Pressure:</i> <span class='value'> ${data.main.pressure} hPa</span></div>
-        <div class='cards'><i  id='add-title' class="fas fa-eye">Visibility:</i> <span class='value'> ${data.visibility} km</span></div>
+    <div id='forcast-more-details'>
+        <div class='cards'><i  id='add-title' class="fas fa-tint"> Humidity</i>  <br/> <span class='value'> ${data.main.humidity}%</span></div>
+        <div class='cards'><i  id='add-title'class="fas fa-compress-arrows-alt"> Pressure</i>  <br/> <span class='value'> ${data.main.pressure} hPa</span></div>
+        <div class='cards'><i  id='add-title' class="fas fa-eye"> Visibility</i>  <br/> <span class='value'> ${data.visibility} km</span></div>
     </div>
   `;
   document.getElementById('more-details').innerHTML = moreHTML;
@@ -123,17 +123,17 @@ function displayAdditionalInfo(data) {
 
   const additionalHTML = `
     <div class="additional-info">
-        <div class='cards'><i id='add-title' class="fas fa-sun">Sunrise:</i><span class='value'> ${sunrise.toLocaleTimeString()}</span></div>
-        <div class='cards'><i id='add-title' class="fas fa-sun">Sunset:</i><span class='value'> ${sunset.toLocaleTimeString()}</span></div>
-        <div class='cards'><i id='add-title' class="fas fa-moon">Moonrise:</i> <span class='value'>  ${moonrise}</span></div>       
-        <div class='cards'><i id='add-title' class="fas fa-moon">Moonset:</i> <span class='value'>  ${moonset}</span></div>
+        <div class='cards'><i id='add-title' class="fas fa-sun"> Sunrise</i>  <br/> <span class='value'> ${sunrise.toLocaleTimeString()}</span></div>
+        <div class='cards'><i id='add-title' class="fas fa-sun"> Sunset</i>  <br/> <span class='value'> ${sunset.toLocaleTimeString()}</span></div>
+        <div class='cards'><i id='add-title' class="fas fa-moon"> Moonrise</i>  <br/> <span class='value'>  ${moonrise}</span></div>       
+        <div class='cards'><i id='add-title' class="fas fa-moon"> Moonset</i>  <br/> <span class='value'>  ${moonset}</span></div>
     </div>
   `;
   document.getElementById('additional-details').innerHTML = additionalHTML;
 }
 
 function displayUVIndex(uvIndex) {
-  const uvHTML = `<div class='cards'><i id='add-title' class="fas fa-sun">UV Index:</i> <span class='value'> ${uvIndex}</span></div>`;
+  const uvHTML = `<div class='cards'><i id='add-title' class="fas fa-sun"> UV Index </i>  <br/> <span class='value'> ${uvIndex}</span></div>`;
   document.getElementById('forcast-more-details').innerHTML += uvHTML;
 }
 
